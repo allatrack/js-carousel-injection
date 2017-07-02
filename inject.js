@@ -19,20 +19,20 @@
                             <li class="mgline teaser-{%=o[i][1]%} type-{%=o[i][10].type%}"> \
                                 <div class="image-with-text"> \
                                     <div class="mcimg"> \
-                                        <a href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow"> \
+                                        <a class="mgline-link" href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow"> \
                                             <div class="image-container"><img class="mcimg" data-i="{%=o[i][1]%}" src="{%=encodeURI(o[i][10].i)%}"></div> \
                                         </a> \
                                     </div> \
                                     <div class="text-elements"> \
                                         <div class="text-on-hover"> \
-                                            <div class="mctitle"><a href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow">{%=o[i][3]%}</a></div> \
+                                            <div class="mctitle"><a class="mgline-link" href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow">{%=o[i][3]%}</a></div> \
                                             <div class="fake"> \
                                                 <div class="mcdomain"> \
-                                                    <a target="_blank" href="{%=encodeURI(o[i][10].dl)%}" data-hash="{%#o[i][9]%}" rel="nofollow">{%=o[i][0]%}</a> \
+                                                    <a class="mgline-link" target="_blank" href="{%=encodeURI(o[i][10].dl)%}" data-hash="{%#o[i][9]%}" rel="nofollow">{%=o[i][0]%}</a> \
                                                 </div> \
                                             </div> \
                                             <div class="mgtobottom"> \
-                                                <div class="mcdomain"><a href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow">{%=o[i][0]%}</a></div> \
+                                                <div class="mcdomain"><a class="mgline-link" href="{%=encodeURI(o[i][10].l)%}" data-hash="{%#o[i][9]%}" target="_blank" rel="nofollow">{%=o[i][0]%}</a></div> \
                                             </div> \
                                         </div> \
                                     </div> \
