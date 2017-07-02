@@ -1,0 +1,200 @@
+#MarketGidComposite {
+    display: block;
+}
+
+#MarketGidComposite .mgbox {
+    height: 321px;
+    min-width: 90px;
+    line-height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    vertical-align: top;
+    text-align: center;
+    padding: 0;
+    border: 1px solid rgb(191, 191, 191);
+}
+
+#MarketGidComposite .mgheader {
+    width: 100%;
+    display: block;
+}
+
+#MarketGidComposite .mghead {
+    color: rgb(47, 59, 130);
+    font: normal 700 14px "Open sans", sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    display: block;
+    margin: 8px 0 0 15px;
+    float: left;
+}
+
+#MarketGidComposite .mg_addad {
+    text-align: right;
+    opacity: 0.5;
+    margin: 6px 15px 0 0;
+    float: right;
+}
+
+#MarketGidComposite .mg_addad:hover {
+    opacity: 0.8;
+}
+
+#MarketGidComposite .mg_addad a {
+    color: rgb(0, 0, 0);
+    font: normal normal normal 10px "Open sans", sans-serif;
+    text-decoration: none;
+}
+
+#MarketGidComposite .mg_addad a img {
+    display: inline-block;
+    padding-bottom: 0;
+    width: auto;
+    border: none;
+    margin: 0px -5px -4px 0px;
+}
+
+#MarketGidComposite .slider {
+    width: 2100px;
+    height: 450px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    list-style: none;
+    padding-left: 0;
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#MarketGidComposite .mgline {
+    float: left;
+    display: block;
+    border: 1px solid rgb(191, 191, 191);
+    margin: 10px 5px;
+    min-width: 90px;
+    width: 10.5111%;
+    max-width: 10.5111%;
+    padding: 0;
+    opacity: 1;
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#MarketGidComposite .image-with-text {
+    display: block;
+    width: 100%;
+    max-width: 328px;
+    min-height: 1px;
+    margin: 0 auto;
+}
+
+#MarketGidComposite .mcimg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 328px;
+    max-height: 328px;
+}
+
+#MarketGidComposite .mcimg .image-container {
+    width: auto;
+    margin: 0 auto;
+}
+
+#MarketGidComposite .text-elements {
+    display: block;
+}
+
+#MarketGidComposite .text-elements .mctitle {
+    margin: 2px 15px 0 10px;
+    display: block;
+    height: 39px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#MarketGidComposite .text-elements .mctitle a {
+    text-decoration: none;
+    color: rgb(79, 129, 189);
+    font: normal bold 13px/110% "Open sans", sans-serif;
+}
+
+#MarketGidComposite .text-elements .fake {
+    display: block;
+    visibility: hidden;
+    height: 2px;
+}
+
+#MarketGidComposite .text-elements .fake .mcdomain {
+    display: block;
+    overflow: hidden;
+    padding: 0px 4px 4px;
+    text-align: left;
+}
+
+#MarketGidComposite .text-elements .fake .mcdomain a {
+    padding: 0 0 2px 6px;
+    color: rgb(187, 187, 187);
+    text-decoration: none;
+    font: normal normal 10px/10px "Open sans", sans-serif;
+}
+
+#MarketGidComposite .text-elements .mgtobottom {
+    display: block;
+    width: 100%;
+    max-width: 328px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#MarketGidComposite .text-elements .mgtobottom .mcdomain {
+    display: block;
+    overflow: hidden;
+    padding: 0 4px 4px;
+    text-align: left;
+}
+
+#MarketGidComposite .text-elements .mgtobottom .mcdomain a {
+    padding: 0 0 2px 6px;
+    color: rgb(187, 187, 187);
+    text-decoration: none;
+    font: normal normal 10px/10px "Open sans", sans-serif;
+}
+
+#MarketGidComposite .slider-prev,
+#MarketGidComposite .slider-next {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid rgb(191, 191, 191);
+    border-top: 1px solid rgb(191, 191, 191);
+    border-bottom: 1px solid rgb(191, 191, 191);
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#MarketGidComposite .slider-prev img,
+#MarketGidComposite .slider-next img {
+    width: 20px;
+    height: 40px;
+}
+
+#MarketGidComposite .slider-next:hover,
+#MarketGidComposite .slider-prev:hover {
+    opacity: 0.8;
+}
+
+#MarketGidComposite .slider-next {
+    right: 0;
+}
