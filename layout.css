@@ -175,7 +175,6 @@
     width: 40px;
     height: 40px;
     background-color: rgb(255, 255, 255);
-    border-right: 1px solid rgb(191, 191, 191);
     border-top: 1px solid rgb(191, 191, 191);
     border-bottom: 1px solid rgb(191, 191, 191);
     -webkit-transition: top 1s ease-out 0.5s;
@@ -197,4 +196,8 @@
 
 #MarketGidComposite .slider-next {
     right: 0;
+    border-left: 1px solid rgb(191, 191, 191);
+}
+#MarketGidComposite .slider-prev {
+    border-right: 1px solid rgb(191, 191, 191);
 }
