@@ -96,7 +96,7 @@
 
             // Prevent links
             [].forEach.call(document.getElementsByClassName("mgline-link-" + this.rootId), function(a) {
-                a.addEventListener('click', function() {
+                a.addEventListener('click', function(event) {
                     if (closest(a, '.mgline-' + that.rootId).getAttribute('data-opacity') < 1) {
                         event.preventDefault();
                         return false;
