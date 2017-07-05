@@ -47,6 +47,8 @@
         this.transitionalMoving = false;
         this.movingSide = 'none';
 
+        this.mouseXCoord = 0;
+
         this.init = function(rootId) {
             this.rootId = rootId;
             var currentGoodsIndex = _mgq[0].findIndex(function(el) {
@@ -76,10 +78,14 @@
                         }
                     });
 
-                    that.slides[i].addEventListener('mouseover', function() {
+                    that.slides[i].addEventListener('mouseover', function(e) {
                         if (that.slides[i].getAttribute('data-opacity') < 1) {
                             that.slides[i].style.opacity = '0.6';
                         }
+                    });
+
+                    that.slides[i].addEventListener('mousemove', function(e) {
+                        that.mouseXCoord = e.clientX;
                     });
 
                     that.slides[i].addEventListener('mouseout', function() {
@@ -144,7 +150,9 @@
             } else {
                 this.slides[this.currentFirstVisibleIndex].setAttribute('data-opacity', '0.6');
                 document.getElementById("mgslider-prev-" + this.rootId).style.display = 'block';
-                if ((this.movingSide == 'right') && (!ismobile())) {
+                var mousePosition = this.mouseXCoord - this.slides[this.currentFirstVisibleIndex].offsetLeft - this.currentCarouselShift;
+                if ((this.movingSide == 'right') && (!ismobile()) &&
+                    (mousePosition < this.slides[this.currentFirstVisibleIndex].clientWidth)) {
                     this.slides[this.currentFirstVisibleIndex].style.opacity = '0.6';
                 }
             }
@@ -155,7 +163,8 @@
             } else {
                 this.slides[this.currentLastVisibleIndex].setAttribute('data-opacity', '0.6');
                 document.getElementById("mgslider-next-" + this.rootId).style.display = 'block';
-                if ((this.movingSide == 'left') && (!ismobile())) {
+                var mousePosition = this.mouseXCoord - this.slides[this.currentLastVisibleIndex].offsetLeft - this.currentCarouselShift;
+                if ((this.movingSide == 'left') && (!ismobile()) && (mousePosition > 0)) {
                     this.slides[this.currentLastVisibleIndex].style.opacity = '0.6';
                 }
             }
