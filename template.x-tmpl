@@ -3,8 +3,8 @@
         <div class="mgheader"><span class="mghead">Promoted Content</span>
             <div class="mg_addad"><a href="https://www.mgid.com/" target="_blank" rel="nofollow">by<img src="img/mgid_logo_mini_43x20.png" alt="Mgid" title="Mgid"></a></div>
         </div>
-        <div class="slider-box">
-            <ul class="slider" id="slider">
+        <div class="mgslider-box">
+            <ul class="mgslider" id="mgslider">
 				{% for (var i=0; i<o.length; i++) { %}
 				    <li class="mgline teaser-{%=o[i][1]%} type-{%=o[i][10].type%}">
 						<div class="image-with-text">
@@ -30,8 +30,8 @@
 					</li>
 				{% } %}
             </ul>
-            <div class="slider-prev" id="slider-prev"><img src="img/scroll-arrow-to-left.svg"></div>
-            <div class="slider-next" id="slider-next"><img src="img/scroll-arrow-to-right.svg"></div>
+            <div class="mgslider-prev" id="mgslider-prev"><img src="img/scroll-arrow-to-left.svg"></div>
+            <div class="mgslider-next" id="mgslider-next"><img src="img/scroll-arrow-to-right.svg"></div>
         </div>
     </div>
 </div>

@@ -3,8 +3,8 @@
 }
 
 #MarketGidComposite .mgbox {
-    height: 321px;
-    min-width: 90px;
+    /*Default*/
+    height: 200px;
     line-height: 100%;
     margin: 0 auto;
     position: relative;
@@ -55,9 +55,9 @@
     margin: 0px -5px -4px 0px;
 }
 
-#MarketGidComposite .slider {
-    width: 2100px;
-    height: 450px;
+#MarketGidComposite .mgslider {
+    /*Guaranted one line carousel*/
+    width: 10000px;
     position: absolute;
     left: 0;
     top: 10px;
@@ -74,9 +74,6 @@
     display: block;
     border: 1px solid rgb(191, 191, 191);
     margin: 10px 5px;
-    min-width: 90px;
-    width: 10.5111%;
-    max-width: 10.5111%;
     padding: 0;
     opacity: 1;
 }
@@ -84,17 +81,14 @@
 #MarketGidComposite .image-with-text {
     display: block;
     width: 100%;
-    max-width: 328px;
     min-height: 1px;
     margin: 0 auto;
 }
 
 #MarketGidComposite .mcimg {
-    width: 100%;
     height: auto;
+    width: 100%;
     display: block;
-    max-width: 328px;
-    max-height: 328px;
 }
 
 #MarketGidComposite .mcimg .image-container {
@@ -143,7 +137,6 @@
 #MarketGidComposite .text-elements .mgtobottom {
     display: block;
     width: 100%;
-    max-width: 328px;
     margin: 0 auto;
     text-align: left;
 }
@@ -162,8 +155,8 @@
     font: normal normal 10px/10px "Open sans", sans-serif;
 }
 
-#MarketGidComposite .slider-prev,
-#MarketGidComposite .slider-next {
+#MarketGidComposite .mgslider-prev,
+#MarketGidComposite .mgslider-next {
     display: block;
     cursor: pointer;
     position: absolute;
@@ -179,22 +172,22 @@
     transition: all 0.5s ease-in-out;
 }
 
-#MarketGidComposite .slider-prev img,
-#MarketGidComposite .slider-next img {
+#MarketGidComposite .mgslider-prev img,
+#MarketGidComposite .mgslider-next img {
     width: 20px;
     height: 40px;
 }
 
-#MarketGidComposite .slider-next:hover,
-#MarketGidComposite .slider-prev:hover {
+#MarketGidComposite .mgslider-next:hover,
+#MarketGidComposite .mgslider-prev:hover {
     opacity: 0.8;
 }
 
-#MarketGidComposite .slider-next {
+#MarketGidComposite .mgslider-next {
     right: 0;
     border-left: 1px solid rgb(191, 191, 191);
 }
 
-#MarketGidComposite .slider-prev {
+#MarketGidComposite .mgslider-prev {
     border-right: 1px solid rgb(191, 191, 191);
 }
