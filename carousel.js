@@ -107,14 +107,7 @@ function MGCarousel() {
             a.addEventListener('click', function(event) {
                 var clickedSlide = closest(a, '.mgline-' + that.rootId);
 
-                // Prevent "clicking" on stealthy slide
-                if (clickedSlide.getAttribute('data-clickable') == false) {
-                    event.preventDefault();
-                    return false;
-                }
-
-                // Prevent ancoring edged slides
-                if (clickedSlide.getAttribute('data-opacity') < 1) {
+                if ((clickedSlide.getAttribute('data-clickable') == false) || (clickedSlide.getAttribute('data-opacity') < 1)) {
                     event.preventDefault();
                     return false;
                 }
