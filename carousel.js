@@ -105,7 +105,16 @@ function MGCarousel() {
         // Prevent links
         [].forEach.call(document.getElementsByClassName("mgline-link-" + this.rootId), function(a) {
             a.addEventListener('click', function(event) {
-                if (closest(a, '.mgline-' + that.rootId).getAttribute('data-opacity') < 1) {
+                var clickedSlide = closest(a, '.mgline-' + that.rootId);
+
+                // Prevent "clicking" on stealthy slide
+                if (clickedSlide.getAttribute('data-clickable') == false) {
+                    event.preventDefault();
+                    return false;
+                }
+
+                // Prevent ancoring edged slides
+                if (clickedSlide.getAttribute('data-opacity') < 1) {
                     event.preventDefault();
                     return false;
                 }
@@ -128,9 +137,7 @@ function MGCarousel() {
             slide.style.width = imageWidth + "px";
         });
 
-        document.querySelector('#MarketGidComposite' + this.rootId + ' .mgbox').style.height = (imageWidth + 100) + "px";;
-
-        return;
+        document.querySelector('#MarketGidComposite' + this.rootId + ' .mgbox').style.height = (imageWidth + 100) + "px";
     }
 
     this.decorateSlider = function() {
@@ -140,10 +147,13 @@ function MGCarousel() {
         for (var i = 0; i < this.slides.length; i++) {
             this.slides[i].setAttribute('data-opacity', '1');
             if (this.slides[i].isVisible()) {
+                this.slides[i].setAttribute('data-clickable', 1);
                 if (this.currentFirstVisibleIndex === null) {
                     this.currentFirstVisibleIndex = i;
                 }
                 this.currentLastVisibleIndex = i;
+            } else {
+                this.slides[i].setAttribute('data-clickable', 0);
             }
         };
 
