@@ -101,9 +101,9 @@
 }
 
 #MarketGidComposite .text-elements .mctitle {
-    margin: 2px 15px 0 10px;
+    margin: 5px 15px 0 10px;
     display: block;
-    height: 39px;
+    height: 50px;
     overflow: hidden;
     text-align: left;
 }
@@ -111,7 +111,7 @@
 #MarketGidComposite .text-elements .mctitle a {
     text-decoration: none;
     color: rgb(79, 129, 189);
-    font: normal bold 13px/110% "Open sans", sans-serif;
+    font: normal bold 13px/100% "Open sans", sans-serif;
 }
 
 #MarketGidComposite .text-elements .fake {

@@ -130,7 +130,7 @@ function MGCarousel() {
             slide.style.width = imageWidth + "px";
         });
 
-        document.querySelector('#MarketGidComposite' + this.rootId + ' .mgbox').style.height = (imageWidth + 100) + "px";
+        document.querySelector('#MarketGidComposite' + this.rootId + ' .mgbox').style.height = (imageWidth + 120) + "px";
     }
 
     this.decorateSlider = function() {
@@ -198,13 +198,19 @@ function MGCarousel() {
                 return;
             }
 
+            var lastSlideRelativeShift = this.mgboxWidth - this.slides[this.slides.length - 1].offsetLeft - this.slides[this.slides.length - 1].clientWidth - 6; // Margin + Border
+
             if ((!this.firstSlidePartialVisible) && (this.currentFirstVisibleIndex < 1)) {
                 this.currentCarouselShift -= 0.7 * (this.slides[this.currentLastVisibleIndex - 1].clientWidth + 2 + 10);
             } else if (this.currentLastVisibleIndex > this.slides.length - 2) { // Most "right" position of the carousel
-                var lastSlideRightBorder = this.lastVisibleSlide.offsetLeft + this.lastVisibleSlide.clientWidth + this.currentCarouselShift;
-                this.currentCarouselShift -= lastSlideRightBorder - this.mgboxWidth + 6; // Margin + Border
+                this.currentCarouselShift = lastSlideRelativeShift;
             } else {
                 this.currentCarouselShift -= this.slides[this.currentLastVisibleIndex - 1].clientWidth + 2 + 10; // Margins + Borders
+            }
+
+            // Prevent white space moving
+            if (this.currentCarouselShift < lastSlideRelativeShift) {
+                this.currentCarouselShift = lastSlideRelativeShift;
             }
 
             this.movingSide = 'left';
