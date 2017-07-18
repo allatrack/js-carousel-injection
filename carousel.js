@@ -87,7 +87,7 @@ function MGCarousel() {
                 });
 
                 that.slides[i].addEventListener('mouseover', function(e) {
-                    if (that.slides[i].getAttribute('data-opacity') < 1) {
+                    if ((that.slides[i].getAttribute('data-opacity') < 1) && (!that.transitionalMoving)) {
                         that.slides[i].style.opacity = '0.6';
                     }
                 });
@@ -190,6 +190,7 @@ function MGCarousel() {
 
         [].forEach.call(this.slides, function(slide) {
             slide.style.opacity = '1';
+            slide.setAttribute('data-opacity', '1');
         });
 
         if (side == 'left') {
