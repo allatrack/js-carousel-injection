@@ -275,8 +275,6 @@ function MGCarousel() {
 
         document.querySelector("style.MarketGidC" + this.rootId).innerHTML = styles;
 
-        this.mgboxWidth = document.getElementById("MarketGidComposite" + this.rootId).clientWidth - 2; // Borders
-
         // Events
         this.mgsliderPrev.addEventListener('click', function() { that.move('right') });
         this.mgsliderNext.addEventListener('click', function() { that.move('left') });
@@ -342,14 +340,16 @@ function MGCarousel() {
 
         // Prevent links
         [].forEach.call(document.querySelectorAll(".mgline a"), function(a) {
-            a.addEventListener('click', function(event) {
-                var clickedSlide = closest(a, '.mgline');
+            ['click', 'dblclick', 'auxclick'].forEach(
+                event => a.addEventListener(event, function(event) {
+                    var clickedSlide = closest(a, '.mgline');
 
-                if ((clickedSlide.getAttribute('data-clickable') == false) || (clickedSlide.getAttribute('data-opacity') < 1)) {
-                    event.preventDefault();
-                    return false;
-                }
-            });
+                    if ((clickedSlide.getAttribute('data-clickable') == false) || (clickedSlide.getAttribute('data-href') == false)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                })
+            );
         });
     }
 
@@ -375,11 +375,16 @@ function MGCarousel() {
     }
 
     this.decorateSlider = function() {
+
+        this.mgboxWidth = document.getElementById("MarketGidComposite" + this.rootId).clientWidth - 2; // Borders
+
         this.currentFirstVisibleIndex = null;
         this.currentLastVisibleIndex = 0;
 
         for (var i = 0; i < this.slides.length; i++) {
             this.slides[i].setAttribute('data-opacity', '1');
+            this.slides[i].setAttribute('data-href', 1);
+            this.slides[i].style.opacity = '1';
             if (this.slides[i].isVisible()) {
                 this.slides[i].setAttribute('data-clickable', 1);
                 if (this.currentFirstVisibleIndex === null) {
@@ -399,12 +404,21 @@ function MGCarousel() {
         // Very "left" position of the carousel
         if ((!this.firstSlidePartialVisible) && (this.currentFirstVisibleIndex < 1)) {
             this.mgsliderPrev.style.display = 'none';
+            if (this.wasMoved) {
+                this.firstVisibleSlide.setAttribute('data-href', 0);
+                var that = this;
+                setTimeout(function() { that.firstVisibleSlide.setAttribute('data-href', 1) }, 1000);
+            }
         } else {
             this.firstVisibleSlide.setAttribute('data-opacity', '0.6');
+            this.firstVisibleSlide.setAttribute('data-href', 0);
             this.mgsliderPrev.style.display = 'block';
             var mousePosition = this.mouseXCoord - this.firstVisibleSlide.offsetLeft - this.currentCarouselShift;
-            if ((this.movingSide == 'right') && (!ismobile()) &&
-                (mousePosition < this.firstVisibleSlide.clientWidth)) {
+            if ((this.movingSide == 'right') && (!ismobile()) && (mousePosition > 0)) {
+                this.firstVisibleSlide.style.opacity = '0.6';
+            }
+
+            if (ismobile()) {
                 this.firstVisibleSlide.style.opacity = '0.6';
             }
         }
@@ -412,13 +426,23 @@ function MGCarousel() {
         // Very "right" position of the carousel
         if ((!this.lastSlidePartialVisible) && (this.currentLastVisibleIndex > this.slides.length - 2)) {
             this.mgsliderNext.style.display = 'none';
+            this.lastVisibleSlide.setAttribute('data-href', 0);
+            var that = this;
+            setTimeout(function() { that.lastVisibleSlide.setAttribute('data-href', 1) }, 1000);
         } else {
             this.lastVisibleSlide.setAttribute('data-opacity', '0.6');
+            this.lastVisibleSlide.setAttribute('data-href', 0);
             this.mgsliderNext.style.display = 'block';
             var mousePosition = this.mouseXCoord - this.lastVisibleSlide.offsetLeft - this.currentCarouselShift;
-            if ((this.movingSide == 'left') && (!ismobile()) && (mousePosition > 0)) {
+            if ((this.movingSide == 'left') && (!ismobile()) &&
+                (mousePosition < this.lastVisibleSlide.clientWidth)) {
                 this.lastVisibleSlide.style.opacity = '0.6';
             }
+
+            if (ismobile()) {
+                this.lastVisibleSlide.style.opacity = '0.6';
+            }
+
         }
 
         this.transitionalMoving = false;
@@ -429,10 +453,7 @@ function MGCarousel() {
             return;
         }
 
-        [].forEach.call(this.slides, function(slide) {
-            slide.style.opacity = '1';
-            slide.setAttribute('data-opacity', '1');
-        });
+        this.wasMoved = true;
 
         if (side == 'left') {
             // Prevent redundant move
@@ -477,5 +498,10 @@ function MGCarousel() {
 
         this.transitionalMoving = true;
         this.mgslider.style.left = this.currentCarouselShift + 'px';
+
+        [].forEach.call(this.slides, function(slide) {
+            slide.style.opacity = '1';
+            slide.setAttribute('data-opacity', '1');
+        });
     }
 }
